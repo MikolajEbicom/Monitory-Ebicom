@@ -277,11 +277,11 @@
         </div>
   </div>
     
-     <div class="footer-links">
-        <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">Odwiedź nasz Facebook</a>
-        <a href="https://www.ebicom.pl" target="_blank">Odwiedź naszą stronę internetową</a>
+    <div class="footer-links">
+        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/" target="_blank">Github Monitory Ebicom</a>
+        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/README.html" target="_blank">Instrukcja</a>
     </div>
-
+    
     <script>
         // Stałe dane logowania
         const validUsername = 'admin';
@@ -358,6 +358,10 @@
                 login();
             }
         });
+          function toggleLinks() {
+            const linkContainer = document.getElementById("link-container");
+            linkContainer.classList.toggle("expanded");
+        }
     </script>
 </body>
 </html>
