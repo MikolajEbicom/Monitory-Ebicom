@@ -113,7 +113,13 @@
         }
 
         .search-container {
-            margin-bottom: 20px;
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1;
         }
 
         .search-container input[type="text"] {
@@ -181,12 +187,6 @@
     <div class="content-wrapper" id="content-wrapper">
         <div class="content">
             <b>Wykaz monitorów w biurze Ebicom</b>
-            <div class="search-container">
-                <label for="monitor-number">Wyszukaj monitor po numerze:</label>
-                <input type="text" id="monitor-number" placeholder="Numer monitoru">
-                <button onclick="generateLink()">Generuj link</button>
-            </div>
-            <div class="generated-link" id="generated-link"></div>
             <div class="expandable-header" onclick="toggleLinks()">Rozwiń aby sprawdzić monitory</div>
             <div class="link-container" id="link-container">
                 <div class="link-column">
@@ -255,6 +255,11 @@
         <a href="https://ebicom.pl/" target="_blank">SPRAWDŹ NASZĄ STRONĘ INTERNETOWĄ</a>
         <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">FACEBOOK</a>
     </div>
+    <div class="search-container">
+        <input type="text" id="monitor-number" placeholder="Numer monitora">
+        <button onclick="generateLink()">Generuj Link</button>
+        <div class="generated-link" id="generated-link"></div>
+    </div>
     <script>
         function login() {
             var username = document.getElementById('username').value;
@@ -279,10 +284,17 @@
             
             if (monitorNumber) {
                 var link = `https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M${monitorNumber}.html`;
-                linkContainer.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
+                linkContainer.innerHTML = `<a href="${link}" target="_blank" onclick="removeLink(event)">${link}</a>`;
             } else {
                 linkContainer.innerHTML = 'Proszę wpisać numer monitora.';
             }
+        }
+
+        function removeLink(event) {
+            event.preventDefault();
+            var linkContainer = document.getElementById('generated-link');
+            linkContainer.innerHTML = '';
+            document.getElementById('monitor-number').value = '';
         }
     </script>
 </body>
