@@ -12,8 +12,6 @@
             font-family: Arial, sans-serif;
             color: black;
             overflow: hidden;
-            background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
-            background-size: 33%;
         }
 
         .login-container {
@@ -49,6 +47,18 @@
 
         .login-container button:hover {
             background-color: #45a049;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
+            background-size: cover;
+            z-index: 0;
+            transition: transform 0.5s ease-out;
         }
 
         .content-wrapper {
@@ -192,6 +202,8 @@
     </style>
 </head>
 <body>
+    <div class="background-image" id="background-image"></div>
+
     <div class="login-container" id="login-container">
         <h2>Logowanie</h2>
         <input type="text" id="username" placeholder="Nazwa użytkownika">
@@ -276,7 +288,8 @@
             </div>
         </div>
   </div>
-     <div class="footer-links">
+    
+    <div class="footer-links">
         <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">Odwiedź nasz Facebook</a>
         <a href="https://www.ebicom.pl" target="_blank">Odwiedź naszą stronę internetową</a>
     </div>
@@ -297,23 +310,26 @@
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
                 document.getElementById('search-container').style.display = 'block'; // Pokazuje pole wyszukiwania po zalogowaniu
+
+                // Przesunięcie tła po zalogowaniu
+                document.getElementById('background-image').style.transform = 'translateY(calc(100% - 60px))'; // Adjust this value as needed
             } else {
-                alert('Niepoprawny login, hasło lub kod!');
+                alert('Błędne dane logowania.');
             }
         }
 
         // Funkcja generowania linku
         function generateLink() {
-            const searchInput = document.getElementById('search-input').value;
-            const number = parseInt(searchInput, 10);
-            const baseUrl = 'https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M';
-            const linkElement = document.getElementById('generated-link');
+            const number = document.getElementById('search-input').value;
+            const generatedLinkElement = document.getElementById('generated-link');
+            generatedLinkElement.innerHTML = '';
 
-            if (number > 50 || isNaN(number)) {
-                linkElement.innerHTML = '<span class="error-message">Nie znaleziono monitora</span>';
+            if (number === '' || isNaN(number)) {
+                generatedLinkElement.innerHTML = '<span class="error-message">Proszę wprowadzić prawidłowy numer.</span>';
+            } else if (number > 50) {
+                generatedLinkElement.innerHTML = '<span class="error-message">Nie znaleziono monitora.</span>';
             } else {
-                const fullUrl = `${baseUrl}${number}.html`;
-                linkElement.innerHTML = `<a href="${fullUrl}" target="_blank">Ebicom-M${number}</a>`;
+                generatedLinkElement.innerHTML = `<a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M${number}.html" target="_blank">Ebicom-M${number}</a>`;
             }
         }
 
