@@ -6,20 +6,39 @@
       height: 100%;
       margin: 0;
       padding: 0;
+      font-family: Arial, sans-serif;
     }
     .video-bg {
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
       z-index: -1;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for more or less darkness */
+      z-index: 0;
     }
     .content {
       position: relative;
       z-index: 1;
       color: white;
       text-align: center;
+      padding-top: 20px;
+    }
+    .content a {
+      color: white;
+      text-decoration: none;
+    }
+    .content a:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -28,6 +47,7 @@
     <source src="https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/ebicom.mp4?raw=true" type="video/mp4">
     Your browser does not support the video tag.
   </video>
+  <div class="overlay"></div>
   <div class="content">
     <b><font size="20">Wykaz monitorów w biurze Ebicom</font></b> <br><br> 
     <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a></font></b> <br>
@@ -63,7 +83,4 @@
     <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M31.html">Ebicom-M31</a></font></b> <br>
     <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M32.html">Ebicom-M32</a></font></b> <br>
     <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M33.html">Ebicom-M33</a></font></b> <br>
-    <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M34.html">Ebicom-M34</a></font></b> <br>
-    <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M35.html">Ebicom-M35</a></font></b> <br>
-    <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M36.html">Ebicom-M36</a></font></b> <br>
-   
+    <b><font size="10"><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M34.html">Ebicom-M34</a
