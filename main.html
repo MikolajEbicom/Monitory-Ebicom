@@ -203,6 +203,15 @@
         <div class="content">
             <b>Wykaz monitorów w biurze Ebicom</b>
             <div class="expandable-header" onclick="toggleLinks()">Rozwiń aby sprawdzić monitory</div>
+
+            <!-- Nowa sekcja z wyszukiwaniem -->
+            <div>
+                <h3>Wyszukaj monitor</h3>
+                <input type="text" id="search-input" placeholder="Wpisz numer monitora...">
+                <button onclick="generateLink()">Szukaj</button>
+                <div class="generated-link" id="generated-link"></div>
+            </div>
+
             <div class="link-container" id="link-container">
                 <!-- Linki do monitorów -->
                 <div class="link-column">
@@ -269,14 +278,14 @@
             </div>
         </div>
   </div>
-   <div class="search-container" id="search-container">
+  <div class="search-container" id="search-container">
         <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
         <button onclick="generateLink()">Generuj link</button>
         <div class="generated-link" id="generated-link"></div>
     </div>
     <div class="footer-links">
-        <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL">Odwiedź nasz Facebook</a>
-        <a href="https://www.ebicom.pl">Odwiedź naszą stronę internetową</a>
+        <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">Odwiedź nasz Facebook</a>
+        <a href="https://www.ebicom.pl" target="_blank">Odwiedź naszą stronę internetową</a>
     </div>
     <script>
         // Funkcja logowania
