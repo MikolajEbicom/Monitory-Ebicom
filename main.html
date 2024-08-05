@@ -183,6 +183,7 @@
         <h2>Logowanie</h2>
         <input type="text" id="username" placeholder="Nazwa użytkownika">
         <input type="password" id="password" placeholder="Hasło">
+        <input type="text" id="code" placeholder="KOD (Aktualna godzina w Warszawie)">
         <button onclick="login()">Zaloguj się</button>
     </div>
     <div class="content-wrapper" id="content-wrapper">
@@ -190,6 +191,7 @@
             <b>Wykaz monitorów w biurze Ebicom</b>
             <div class="expandable-header" onclick="toggleLinks()">Rozwiń aby sprawdzić monitory</div>
             <div class="link-container" id="link-container">
+                <!-- Linki do monitorów -->
                 <div class="link-column">
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
@@ -214,116 +216,60 @@
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M19.html">Ebicom-M19</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M20.html">Ebicom-M20</a>
                 </div>
-                <div class="link-column">
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M21.html">Ebicom-M21</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M22.html">Ebicom-M22</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M23.html">Ebicom-M23</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M24.html">Ebicom-M24</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M25.html">Ebicom-M25</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M26.html">Ebicom-M26</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M27.html">Ebicom-M27</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M28.html">Ebicom-M28</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M29.html">Ebicom-M29</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M30.html">Ebicom-M30</a>
-                </div>
-                <div class="link-column">
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M31.html">Ebicom-M31</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M32.html">Ebicom-M32</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M33.html">Ebicom-M33</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M34.html">Ebicom-M34</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M35.html">Ebicom-M35</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M36.html">Ebicom-M36</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M37.html">Ebicom-M37</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M38.html">Ebicom-M38</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M39.html">Ebicom-M39</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M40.html">Ebicom-M40</a>
-                </div>
-                <div class="link-column">
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M41.html">Ebicom-M41</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M42.html">Ebicom-M42</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M43.html">Ebicom-M43</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M44.html">Ebicom-M44</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M45.html">Ebicom-M45</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M46.html">Ebicom-M46</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M47.html">Ebicom-M47</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M48.html">Ebicom-M48</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M49.html">Ebicom-M49</a>
-                </div>
+            </div>
+            <div class="search-container" id="search-container">
+                <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
+                <button onclick="generateLink()">Generuj link</button>
+                <div class="generated-link" id="generated-link"></div>
             </div>
         </div>
     </div>
     <div class="footer-links">
-        <a href="https://ebicom.pl/" target="_blank">SPRAWDŹ NASZĄ STRONĘ INTERNETOWĄ</a>
-        <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">FACEBOOK</a>
-    </div>
-    <div class="search-container" id="search-container">
-        <input type="text" id="monitor-number" placeholder="Numer monitora">
-        <button onclick="generateLink()">Generuj Link</button>
-        <div class="generated-link" id="generated-link"></div>
+        <a href="https://github.com/MikolajEbicom/Monitory-Ebicom">Repozytorium GitHub</a>
+        <a href="https://www.ebicom.pl">Strona główna Ebicom</a>
+        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
+        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
+        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M3.html">Ebicom-M3</a>
     </div>
     <script>
-        // Hasło ukryte w zmiennej JavaScript
-        const correctPassword = 'zaq1@WSX';
+        const currentHour = new Date().getHours();
+        const correctHour = 10; // Przykładowa godzina do sprawdzenia
 
         function login() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const code = document.getElementById('code').value;
 
-            if (username === 'admin' && password === correctPassword) {
+            if (username && password && code == currentHour) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
-                document.getElementById('search-container').style.display = 'block'; // Pokaż pole wyszukiwania
+                document.getElementById('search-container').style.display = 'block';
             } else {
-                alert('Nieprawidłowa nazwa użytkownika lub hasło.');
+                alert('Niepoprawny kod lub dane logowania!');
             }
         }
 
         function toggleLinks() {
-            var linkContainer = document.getElementById('link-container');
+            const linkContainer = document.getElementById('link-container');
             linkContainer.classList.toggle('expanded');
         }
 
         function generateLink() {
-            var monitorNumber = document.getElementById('monitor-number').value;
-            var linkContainer = document.getElementById('generated-link');
-            
-            if (monitorNumber) {
-                var link = `https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M${monitorNumber}.html`;
-                linkContainer.innerHTML = `<a href="${link}" target="_blank" onclick="removeLinkAfterOpen(event)">${link}</a>`;
-            } else {
-                linkContainer.innerHTML = 'Proszę wpisać numer monitora.';
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const links = document.querySelectorAll('.link-column a');
+            let found = false;
+
+            links.forEach(link => {
+                if (link.innerText.toLowerCase().includes(searchInput)) {
+                    document.getElementById('generated-link').innerHTML = `<a href="${link.href}" target="_blank">${link.innerText}</a>`;
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                document.getElementById('generated-link').innerText = 'Nie znaleziono monitora.';
             }
         }
-
-        function removeLinkAfterOpen(event) {
-            var linkContainer = document.getElementById('generated-link');
-            event.preventDefault();
-            window.open(event.target.href, '_blank').onload = function() {
-                linkContainer.innerHTML = '';
-                document.getElementById('monitor-number').value = '';
-            };
-        }
-
-        document.getElementById('username').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                login();
-            }
-        });
-
-        document.getElementById('password').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                login();
-            }
-        });
-
-        document.getElementById('login-container').addEventListener('keydown', function(event) {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                login();
-            }
-        });
     </script>
 </body>
 </html>
