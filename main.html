@@ -112,6 +112,39 @@
             text-decoration: underline;
         }
 
+        .search-container {
+            margin-bottom: 20px;
+        }
+
+        .search-container input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 200px;
+        }
+
+        .search-container button {
+            padding: 10px;
+            font-size: 16px;
+            color: white;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-container button:hover {
+            background-color: #45a049;
+        }
+
+        .generated-link {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #4CAF50;
+        }
+
         .footer-links {
             position: absolute;
             bottom: 20px;
@@ -148,6 +181,12 @@
     <div class="content-wrapper" id="content-wrapper">
         <div class="content">
             <b>Wykaz monitorów w biurze Ebicom</b>
+            <div class="search-container">
+                <label for="monitor-number">Wyszukaj monitor po numerze:</label>
+                <input type="text" id="monitor-number" placeholder="Numer monitoru">
+                <button onclick="generateLink()">Generuj link</button>
+            </div>
+            <div class="generated-link" id="generated-link"></div>
             <div class="expandable-header" onclick="toggleLinks()">Rozwiń aby sprawdzić monitory</div>
             <div class="link-container" id="link-container">
                 <div class="link-column">
@@ -221,7 +260,6 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            // Przyklad prostego logowania. W prawdziwej aplikacji użyj bezpieczniejszych metod.
             if (username === 'admin' && password === 'password') {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
@@ -233,6 +271,18 @@
         function toggleLinks() {
             var linkContainer = document.getElementById('link-container');
             linkContainer.classList.toggle('expanded');
+        }
+
+        function generateLink() {
+            var monitorNumber = document.getElementById('monitor-number').value;
+            var linkContainer = document.getElementById('generated-link');
+            
+            if (monitorNumber) {
+                var link = `https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M${monitorNumber}.html`;
+                linkContainer.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
+            } else {
+                linkContainer.innerHTML = 'Proszę wpisać numer monitora.';
+            }
         }
     </script>
 </body>
