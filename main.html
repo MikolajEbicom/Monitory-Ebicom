@@ -34,21 +34,22 @@
         }
 
         .content {
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
             background: rgba(255, 255, 255, 0.8);
             border-radius: 10px;
+            padding: 20px;
         }
 
-        .content b {
-            display: block;
-            font-size: 28px;
-            margin-bottom: 20px;
+        .column {
+            flex: 1 1 45%;
+            min-width: 300px;
+            max-width: 45%;
         }
 
-        .content a {
+        .column a {
             display: block;
             color: black;
             text-decoration: none;
@@ -58,24 +59,9 @@
             transition: background-color 0.3s ease;
         }
 
-        .content a:hover {
+        .column a:hover {
             background-color: lightgreen; /* Jasny zielony kolor podświetlenia */
             border-radius: 5px; /* Opcjonalne zaokrąglenie rogów */
-        }
-
-        .column {
-            display: inline-block;
-            vertical-align: top;
-            width: 45%; /* Szerokość kolumn */
-            padding: 0 20px;
-        }
-
-        .column:nth-child(odd) {
-            text-align: left; /* Wyrównanie tekstu do lewej w pierwszej kolumnie */
-        }
-
-        .column:nth-child(even) {
-            text-align: right; /* Wyrównanie tekstu do prawej w drugiej kolumnie */
         }
 
         .footer-links {
@@ -104,8 +90,8 @@
     <div class="background"></div>
     <div class="content-wrapper">
         <div class="content">
-            <b>Wykaz monitorów w biurze Ebicom</b>
             <div class="column">
+                <b>Wykaz monitorów w biurze Ebicom</b>
                 <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
                 <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
                 <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M3.html">Ebicom-M3</a>
@@ -155,6 +141,9 @@
                 <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M47.html">Ebicom-M47</a>
                 <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M48.html">Ebicom-M48</a>
                 <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M49.html">Ebicom-M49</a>
+            </div>
+            <div class="column">
+                <!-- Można tu dodać dodatkowe linki lub informacje -->
             </div>
         </div>
     </div>
