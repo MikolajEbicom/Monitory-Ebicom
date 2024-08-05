@@ -13,7 +13,7 @@
             color: black;
             overflow: hidden;
             background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
-            background-size: 33%; /* Ustawienie rozmiaru tła na 33% */
+            background-size: 33%;
         }
 
         .login-container {
@@ -81,18 +81,18 @@
             justify-content: center;
             gap: 20px;
             overflow: hidden;
-            max-height: 0; /* Początkowa wysokość 0, aby ukryć kolumny */
+            max-height: 0;
             transition: max-height 0.5s ease-out;
         }
 
         .link-container.expanded {
-            max-height: 1000px; /* Maksymalna wysokość, aby pomieścić wszystkie kolumny */
+            max-height: 1000px;
         }
 
         .link-column {
             display: flex;
             flex-direction: column;
-            width: 250px;
+            width: 200px;
             text-align: left;
         }
 
@@ -100,7 +100,7 @@
             display: block;
             color: black;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 16px;
             margin: 5px 0;
             padding: 10px;
             transition: background 0.3s, color 0.3s;
@@ -120,7 +120,7 @@
             padding: 10px;
             border-radius: 5px;
             z-index: 1;
-            display: none; /* Domyślnie ukryte */
+            display: none;
         }
 
         .search-container input[type="text"] {
@@ -183,7 +183,7 @@
         <h2>Logowanie</h2>
         <input type="text" id="username" placeholder="Nazwa użytkownika">
         <input type="password" id="password" placeholder="Hasło">
-        <input type="text" id="code" placeholder="KOD (Aktualna godzina w Warszawie)">
+        <input type="text" id="code" placeholder="KOD">
         <button onclick="login()">Zaloguj się</button>
     </div>
     <div class="content-wrapper" id="content-wrapper">
@@ -202,9 +202,9 @@
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M7.html">Ebicom-M7</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M8.html">Ebicom-M8</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M9.html">Ebicom-M9</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M10.html">Ebicom-M10</a>
                 </div>
                 <div class="link-column">
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M10.html">Ebicom-M10</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M11.html">Ebicom-M11</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M12.html">Ebicom-M12</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M13.html">Ebicom-M13</a>
@@ -214,22 +214,55 @@
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M17.html">Ebicom-M17</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M18.html">Ebicom-M18</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M19.html">Ebicom-M19</a>
-                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M20.html">Ebicom-M20</a>
                 </div>
-            </div>
-            <div class="search-container" id="search-container">
-                <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
-                <button onclick="generateLink()">Generuj link</button>
-                <div class="generated-link" id="generated-link"></div>
+                <div class="link-column">
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M20.html">Ebicom-M20</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M21.html">Ebicom-M21</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M22.html">Ebicom-M22</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M23.html">Ebicom-M23</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M24.html">Ebicom-M24</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M25.html">Ebicom-M25</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M26.html">Ebicom-M26</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M27.html">Ebicom-M27</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M28.html">Ebicom-M28</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M29.html">Ebicom-M29</a>
+                </div>
+                <div class="link-column">
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M30.html">Ebicom-M30</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M31.html">Ebicom-M31</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M32.html">Ebicom-M32</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M33.html">Ebicom-M33</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M34.html">Ebicom-M34</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M35.html">Ebicom-M35</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M36.html">Ebicom-M36</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M37.html">Ebicom-M37</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M38.html">Ebicom-M38</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M39.html">Ebicom-M39</a>
+                </div>
+                <div class="link-column">
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M40.html">Ebicom-M40</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M41.html">Ebicom-M41</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M42.html">Ebicom-M42</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M43.html">Ebicom-M43</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M44.html">Ebicom-M44</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M45.html">Ebicom-M45</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M46.html">Ebicom-M46</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M47.html">Ebicom-M47</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M48.html">Ebicom-M48</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M49.html">Ebicom-M49</a>
+                    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M50.html">Ebicom-M50</a>
+                </div>
             </div>
         </div>
     </div>
+    <div class="search-container" id="search-container">
+        <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
+        <button onclick="generateLink()">Generuj link</button>
+        <div class="generated-link" id="generated-link"></div>
+    </div>
     <div class="footer-links">
-        <a href="https://github.com/MikolajEbicom/Monitory-Ebicom">Repozytorium GitHub</a>
-        <a href="https://www.ebicom.pl">Strona główna Ebicom</a>
-        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
-        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
-        <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M3.html">Ebicom-M3</a>
+        <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL">Odwiedź nasz Facebook</a>
+        <a href="https://www.ebicom.pl">Odwiedź naszą stronę internetową</a>
     </div>
     <script>
         const currentHour = new Date().getHours();
