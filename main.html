@@ -7,26 +7,30 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      color: white;
+      color: black;
       text-align: left;
+      background-color: white; /* White background color for the page */
     }
 
     .background {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center fixed;
-      background-size: cover;
-      z-index: -1;
-      filter: brightness(50%); /* Add a black overlay effect */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 50%; /* Adjust the size of the image */
+      max-width: 600px; /* Optional: set a max width */
+      height: auto; /* Maintain aspect ratio */
+      background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
+      background-size: contain; /* Adjust to ensure the image is contained */
+      border: 1px solid black; /* Optional: add a border to the image */
+      padding: 20px; /* Optional: add padding around the image */
     }
 
     .content {
       position: relative;
       z-index: 1;
       padding: 20px;
+      text-align: left; /* Ensure text alignment is to the left */
     }
 
     .content b {
@@ -34,7 +38,7 @@
     }
 
     .content a {
-      color: white;
+      color: black; /* Change link color to black for contrast */
       text-decoration: none;
       font-size: 20px; /* Font size for the links */
     }
