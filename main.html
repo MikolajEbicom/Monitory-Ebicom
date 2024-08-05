@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
@@ -74,10 +74,11 @@
             color: #4CAF50;
             text-decoration: underline;
         }
+
         .link-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Centruje kolumny wewnątrz kontenera */
+            justify-content: center;
             gap: 20px;
             overflow: hidden;
             max-height: 0;
@@ -85,15 +86,15 @@
         }
 
         .link-container.expanded {
-            max-height: 1000px; /* Wysokość dostosowana do zawartości */
+            max-height: 1000px;
         }
 
         .link-column {
             display: flex;
             flex-direction: column;
-            align-items: center; /* Wyśrodkowuje elementy wewnątrz kolumny */
-            width: 200px; /* Szerokość kolumny */
-            text-align: center; /* Wyśrodkowuje tekst w kolumnie */
+            align-items: center;
+            width: 200px;
+            text-align: center;
         }
 
         .link-column a {
@@ -111,6 +112,7 @@
             color: black;
             text-decoration: underline;
         }
+
         .search-container {
             position: absolute;
             top: 20px;
@@ -192,6 +194,7 @@
             <div class="link-container" id="link-container">
                 <!-- Linki do monitorów -->
                 <div class="link-column">
+                    <!-- Linki do monitorów -->
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M3.html">Ebicom-M3</a>
@@ -254,77 +257,64 @@
             </div>
         </div>
     </div>
-    <script>
-    function generateLink() {
-        const searchInput = document.getElementById('search-input').value;
-        const number = parseInt(searchInput, 10);
-        const baseUrl = 'https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M';
-        const suffix = '.html';
-        const generatedLinkElement = document.getElementById('generated-link');
-
-        if (isNaN(number) || number < 1 || number > 50) {
-            generatedLinkElement.innerText = 'Nie ma takiego monitora.';
-        } else {
-            const link = `${baseUrl}${number}${suffix}`;
-            generatedLinkElement.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
-        }
-    }
-</script>
+    <div class="search-container" id="search-container">
+        <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
+        <button onclick="generateLink()">Generuj link</button>
+        <div class="generated-link" id="generated-link"></div>
+    </div>
     <div class="footer-links">
         <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL">Odwiedź nasz Facebook</a>
         <a href="https://www.ebicom.pl">Odwiedź naszą stronę internetową</a>
     </div>
-<script>
-    function getWarsawHour() {
-        // Utwórz obiekt Date z bieżącym czasem w strefie czasowej Warszawy (UTC+2 lub UTC+1, zależnie od pory roku)
-        const options = { timeZone: 'Europe/Warsaw', hour: '2-digit', hour12: false };
-        const now = new Date().toLocaleString('en-US', options);
-        return parseInt(now, 10); // Zwróć godzinę jako liczbę całkowitą
-    }
-
-    function sumOfDigits(number) {
-        // Oblicz sumę cyfr liczby
-        return number.toString().split('').reduce((sum, digit) => sum + parseInt(digit, 10), 0);
-    }
-
-    function login() {
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const code = parseInt(document.getElementById('code').value, 10);
-
-        const currentHour = getWarsawHour(); // Pobierz godzinę z strefy czasowej Warszawy
-        const correctCode = sumOfDigits(currentHour); // Oblicz sumę cyfr godziny
-
-        if (username && password && code === correctCode) {
-            document.getElementById('login-container').style.display = 'none';
-            document.getElementById('content-wrapper').style.display = 'block';
-            document.getElementById('search-container').style.display = 'block';
-        } else {
-            alert('Niepoprawny kod lub dane logowania!');
+    <script>
+        function getWarsawHour() {
+            const options = { timeZone: 'Europe/Warsaw', hour: '2-digit', hour12: false };
+            const now = new Date().toLocaleString('en-US', options);
+            return parseInt(now, 10);
         }
-    }
 
-    function toggleLinks() {
-        const linkContainer = document.getElementById('link-container');
-        linkContainer.classList.toggle('expanded');
-    }
+        function sumOfDigits(number) {
+            return number.toString().split('').reduce((sum, digit) => sum + parseInt(digit, 10), 0);
+        }
 
-    function generateLink() {
-        const searchInput = document.getElementById('search-input').value.toLowerCase();
-        const links = document.querySelectorAll('.link-column a');
-        let found = false;
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const code = parseInt(document.getElementById('code').value, 10);
 
-        links.forEach(link => {
-            if (link.innerText.toLowerCase().includes(searchInput)) {
-                document.getElementById('generated-link').innerHTML = `<a href="${link.href}" target="_blank">${link.innerText}</a>`;
-                found = true;
+            const currentHour = getWarsawHour();
+            const correctCode = sumOfDigits(currentHour);
+
+            if (username && password && code === correctCode) {
+                document.getElementById('login-container').style.display = 'none';
+                document.getElementById('content-wrapper').style.display = 'block';
+                document.getElementById('search-container').style.display = 'block';
+            } else {
+                alert('Niepoprawny kod lub dane logowania!');
             }
-        });
-
-        if (!found) {
-            document.getElementById('generated-link').innerText = 'Nie znaleziono monitora.';
         }
-    }
-</script>
+
+        function toggleLinks() {
+            const linkContainer = document.getElementById('link-container');
+            linkContainer.classList.toggle('expanded');
+        }
+
+        function generateLink() {
+            const searchInput = document.getElementById('search-input').value.toLowerCase();
+            const links = document.querySelectorAll('.link-column a');
+            let found = false;
+
+            links.forEach(link => {
+                if (link.innerText.toLowerCase().includes(searchInput)) {
+                    document.getElementById('generated-link').innerHTML = `<a href="${link.href}" target="_blank">${link.innerText}</a>`;
+                    found = true;
+                }
+            });
+
+            if (!found) {
+                document.getElementById('generated-link').innerText = 'Nie znaleziono monitora.';
+            }
+        }
+    </script>
 </body>
 </html>
