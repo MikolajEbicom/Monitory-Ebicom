@@ -120,6 +120,7 @@
             padding: 10px;
             border-radius: 5px;
             z-index: 1;
+            display: none; /* Domyślnie ukryte */
         }
 
         .search-container input[type="text"] {
@@ -255,7 +256,7 @@
         <a href="https://ebicom.pl/" target="_blank">SPRAWDŹ NASZĄ STRONĘ INTERNETOWĄ</a>
         <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">FACEBOOK</a>
     </div>
-    <div class="search-container">
+    <div class="search-container" id="search-container">
         <input type="text" id="monitor-number" placeholder="Numer monitora">
         <button onclick="generateLink()">Generuj Link</button>
         <div class="generated-link" id="generated-link"></div>
@@ -268,6 +269,7 @@
             if (username === 'admin' && password === 'password') {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
+                document.getElementById('search-container').style.display = 'block'; // Pokaż pole wyszukiwania
             } else {
                 alert('Nieprawidłowa nazwa użytkownika lub hasło.');
             }
@@ -284,20 +286,21 @@
             
             if (monitorNumber) {
                 var link = `https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M${monitorNumber}.html`;
-                linkContainer.innerHTML = `<a href="${link}" target="_blank" onclick="removeLink(event)">${link}</a>`;
+                linkContainer.innerHTML = `<a href="${link}" target="_blank" onclick="removeLinkAfterOpen(event)">${link}</a>`;
             } else {
                 linkContainer.innerHTML = 'Proszę wpisać numer monitora.';
             }
         }
 
-        function removeLink(event) {
-            event.preventDefault();
+        function removeLinkAfterOpen(event) {
             var linkContainer = document.getElementById('generated-link');
-            linkContainer.innerHTML = '';
-            document.getElementById('monitor-number').value = '';
+            event.preventDefault();
+            window.open(event.target.href, '_blank').onload = function() {
+                linkContainer.innerHTML = '';
+                document.getElementById('monitor-number').value = '';
+            };
         }
 
-        // Dodaj nasłuchiwanie zdarzenia 'keydown' na formularzu logowania
         document.getElementById('login-container').addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
