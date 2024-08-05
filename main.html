@@ -200,7 +200,7 @@
     </div>
 
     <div class="search-container" id="search-container">
-        <input type="text" id="search-input" placeholder="Wpisz numer monitora lub dane logowania...">
+        <input type="text" id="search-input" placeholder="Wpisz numer monitora...">
         <button onclick="handleAction()">Potwierdź</button>
         <div class="generated-link" id="generated-link"></div>
     </div>
@@ -275,27 +275,29 @@
             </div>
         </div>
   </div>
- <div class="footer-links">
+<div class="footer-links">
         <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">Odwiedź nasz Facebook</a>
         <a href="https://www.ebicom.pl" target="_blank">Odwiedź naszą stronę internetową</a>
     </div>
 
     <script>
+        // Stałe dane logowania
+        const validUsername = 'admin';
+        const validPassword = 'zaq1@WSX';
+        const validCode = 65;
+
         // Funkcja logowania
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
             const code = parseInt(document.getElementById('code').value, 10);
 
-            const currentHour = getWarsawHour(); // Pobierz godzinę z strefy czasowej Warszawy
-            const correctCode = sumOfDigits(currentHour); // Oblicz sumę cyfr godziny
-
-            if (username && password && code === correctCode) {
+            if (username === validUsername && password === validPassword && code === validCode) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
                 document.getElementById('search-container').style.display = 'block';
             } else {
-                alert('Niepoprawny kod lub dane logowania!');
+                alert('Niepoprawny login, hasło lub kod!');
             }
         }
 
@@ -326,29 +328,7 @@
 
         // Funkcja obsługująca akcje w polu wyszukiwania
         function handleAction() {
-            const searchInput = document.getElementById('search-input').value;
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            if (username && password) {
-                login();
-            } else {
-                generateLink();
-            }
-        }
-
-        // Funkcja do pobierania godziny z strefy czasowej Warszawy
-        function getWarsawHour() {
-            const date = new Date();
-            const utc = date.getTime() + date.getTimezoneOffset() * 60000;
-            const offset = 3; // Strefa czasowa CEST (UTC+2, w czasie letnim UTC+3)
-            const warsawDate = new Date(utc + (3600000 * offset));
-            return warsawDate.getHours();
-        }
-
-        // Funkcja do obliczania sumy cyfr liczby
-        function sumOfDigits(number) {
-            return number.toString().split('').reduce((acc, digit) => acc + parseInt(digit, 10), 0);
+            generateLink();
         }
 
         // Ustawienie nasłuchiwania zdarzenia na naciśnięcie Enter w polu wyszukiwania
