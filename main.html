@@ -7,39 +7,55 @@
       margin: 0;
       padding: 0;
       font-family: Arial, sans-serif;
-      background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/images.png?raw=true') no-repeat center center fixed;
-      background-size: cover;
+      color: white;
+      text-align: left;
     }
-    .overlay {
+
+    .video-background {
       position: fixed;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.5); /* Adjust the alpha value for more or less darkness */
-      z-index: 0;
+      overflow: hidden;
+      z-index: -1;
     }
+
+    .video-background video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+
     .content {
       position: relative;
       z-index: 1;
-      color: white;
       padding: 20px;
     }
+
     .content b {
-      font-size: 24px; /* Smaller font size */
+      font-size: 28px; /* Slightly larger font size for the header */
     }
+
     .content a {
       color: white;
       text-decoration: none;
-      font-size: 16px; /* Smaller font size */
+      font-size: 20px; /* Font size for the links */
     }
+
     .content a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="overlay"></div>
+  <div class="video-background">
+    <video autoplay loop muted>
+      <source src="https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/Sequence%2001_1.mp4?raw=true" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
   <div class="content">
     <b>Wykaz monitorów w biurze Ebicom</b> <br><br> 
     <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a></b> <br>
