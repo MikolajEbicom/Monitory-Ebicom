@@ -121,7 +121,6 @@
             padding: 10px;
             border-radius: 5px;
             z-index: 1;
-            display: none;
         }
 
         .search-container input[type="text"] {
@@ -199,19 +198,17 @@
         <input type="text" id="code" placeholder="KOD">
         <button onclick="login()">Zaloguj się</button>
     </div>
+
+    <div class="search-container" id="search-container">
+        <input type="text" id="search-input" placeholder="Wpisz numer monitora lub dane logowania...">
+        <button onclick="handleAction()">Potwierdź</button>
+        <div class="generated-link" id="generated-link"></div>
+    </div>
+
     <div class="content-wrapper" id="content-wrapper">
         <div class="content">
             <b>Wykaz monitorów w biurze Ebicom</b>
             <div class="expandable-header" onclick="toggleLinks()">Rozwiń aby sprawdzić monitory</div>
-
-            <!-- Nowa sekcja z wyszukiwaniem -->
-            <div>
-                <h3>Wyszukaj monitor</h3>
-                <input type="text" id="search-input" placeholder="Wpisz numer monitora...">
-                <button onclick="generateLink()">Szukaj</button>
-                <div class="generated-link" id="generated-link"></div>
-            </div>
-
             <div class="link-container" id="link-container">
                 <!-- Linki do monitorów -->
                 <div class="link-column">
@@ -278,15 +275,11 @@
             </div>
         </div>
   </div>
-  <div class="search-container" id="search-container">
-        <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
-        <button onclick="generateLink()">Generuj link</button>
-        <div class="generated-link" id="generated-link"></div>
-    </div>
-    <div class="footer-links">
+ <div class="footer-links">
         <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL" target="_blank">Odwiedź nasz Facebook</a>
         <a href="https://www.ebicom.pl" target="_blank">Odwiedź naszą stronę internetową</a>
     </div>
+
     <script>
         // Funkcja logowania
         function login() {
@@ -331,36 +324,57 @@
             }
         }
 
-        // Funkcja do pobierania aktualnej godziny w strefie czasowej Warszawy
-        function getWarsawHour() {
-            const now = new Date();
-            const warsawTime = new Date(now.toLocaleString("en-US", {timeZone: "Europe/Warsaw"}));
-            return warsawTime.getHours();
-        }
+        // Funkcja obsługująca akcje w polu wyszukiwania
+        function handleAction() {
+            const searchInput = document.getElementById('search-input').value;
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-        // Funkcja do obliczania sumy cyfr
-        function sumOfDigits(num) {
-            return num.toString().split('').reduce((sum, digit) => sum + parseInt(digit, 10), 0);
-        }
-
-        // Funkcja do nasłuchiwania klawisza Enter
-        function handleEnterKey(event, action) {
-            if (event.key === 'Enter') {
-                action();
+            if (username && password) {
+                login();
+            } else {
+                generateLink();
             }
         }
 
-        document.getElementById('username').addEventListener('keypress', function(event) {
-            handleEnterKey(event, login);
+        // Funkcja do pobierania godziny z strefy czasowej Warszawy
+        function getWarsawHour() {
+            const date = new Date();
+            const utc = date.getTime() + date.getTimezoneOffset() * 60000;
+            const offset = 3; // Strefa czasowa CEST (UTC+2, w czasie letnim UTC+3)
+            const warsawDate = new Date(utc + (3600000 * offset));
+            return warsawDate.getHours();
+        }
+
+        // Funkcja do obliczania sumy cyfr liczby
+        function sumOfDigits(number) {
+            return number.toString().split('').reduce((acc, digit) => acc + parseInt(digit, 10), 0);
+        }
+
+        // Ustawienie nasłuchiwania zdarzenia na naciśnięcie Enter w polu wyszukiwania
+        document.getElementById('search-input').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                handleAction();
+            }
         });
-        document.getElementById('password').addEventListener('keypress', function(event) {
-            handleEnterKey(event, login);
+
+        // Ustawienie nasłuchiwania zdarzenia na naciśnięcie Enter w polu logowania
+        document.getElementById('username').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                login();
+            }
         });
-        document.getElementById('code').addEventListener('keypress', function(event) {
-            handleEnterKey(event, login);
+
+        document.getElementById('password').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                login();
+            }
         });
-        document.getElementById('search-input').addEventListener('keypress', function(event) {
-            handleEnterKey(event, generateLink);
+
+        document.getElementById('code').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                login();
+            }
         });
     </script>
 </body>
