@@ -254,54 +254,77 @@
             </div>
         </div>
     </div>
-    <div class="search-container" id="search-container">
-        <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
-        <button onclick="generateLink()">Generuj link</button>
-        <div class="generated-link" id="generated-link"></div>
-    </div>
+    <script>
+    function generateLink() {
+        const searchInput = document.getElementById('search-input').value;
+        const number = parseInt(searchInput, 10);
+        const baseUrl = 'https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M';
+        const suffix = '.html';
+        const generatedLinkElement = document.getElementById('generated-link');
+
+        if (isNaN(number) || number < 1 || number > 50) {
+            generatedLinkElement.innerText = 'Nie ma takiego monitora.';
+        } else {
+            const link = `${baseUrl}${number}${suffix}`;
+            generatedLinkElement.innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
+        }
+    }
+</script>
     <div class="footer-links">
         <a href="https://www.facebook.com/EbicomKatowice/?locale=pl_PL">Odwiedź nasz Facebook</a>
         <a href="https://www.ebicom.pl">Odwiedź naszą stronę internetową</a>
     </div>
-    <script>
-        const currentHour = new Date().getHours();
-        const correctHour = 10; // Przykładowa godzina do sprawdzenia
+<script>
+    function getWarsawHour() {
+        // Utwórz obiekt Date z bieżącym czasem w strefie czasowej Warszawy (UTC+2 lub UTC+1, zależnie od pory roku)
+        const options = { timeZone: 'Europe/Warsaw', hour: '2-digit', hour12: false };
+        const now = new Date().toLocaleString('en-US', options);
+        return parseInt(now, 10); // Zwróć godzinę jako liczbę całkowitą
+    }
 
-        function login() {
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const code = document.getElementById('code').value;
+    function sumOfDigits(number) {
+        // Oblicz sumę cyfr liczby
+        return number.toString().split('').reduce((sum, digit) => sum + parseInt(digit, 10), 0);
+    }
 
-            if (username && password && code == currentHour) {
-                document.getElementById('login-container').style.display = 'none';
-                document.getElementById('content-wrapper').style.display = 'block';
-                document.getElementById('search-container').style.display = 'block';
-            } else {
-                alert('Niepoprawny kod lub dane logowania!');
+    function login() {
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        const code = parseInt(document.getElementById('code').value, 10);
+
+        const currentHour = getWarsawHour(); // Pobierz godzinę z strefy czasowej Warszawy
+        const correctCode = sumOfDigits(currentHour); // Oblicz sumę cyfr godziny
+
+        if (username && password && code === correctCode) {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('content-wrapper').style.display = 'block';
+            document.getElementById('search-container').style.display = 'block';
+        } else {
+            alert('Niepoprawny kod lub dane logowania!');
+        }
+    }
+
+    function toggleLinks() {
+        const linkContainer = document.getElementById('link-container');
+        linkContainer.classList.toggle('expanded');
+    }
+
+    function generateLink() {
+        const searchInput = document.getElementById('search-input').value.toLowerCase();
+        const links = document.querySelectorAll('.link-column a');
+        let found = false;
+
+        links.forEach(link => {
+            if (link.innerText.toLowerCase().includes(searchInput)) {
+                document.getElementById('generated-link').innerHTML = `<a href="${link.href}" target="_blank">${link.innerText}</a>`;
+                found = true;
             }
+        });
+
+        if (!found) {
+            document.getElementById('generated-link').innerText = 'Nie znaleziono monitora.';
         }
-
-        function toggleLinks() {
-            const linkContainer = document.getElementById('link-container');
-            linkContainer.classList.toggle('expanded');
-        }
-
-        function generateLink() {
-            const searchInput = document.getElementById('search-input').value.toLowerCase();
-            const links = document.querySelectorAll('.link-column a');
-            let found = false;
-
-            links.forEach(link => {
-                if (link.innerText.toLowerCase().includes(searchInput)) {
-                    document.getElementById('generated-link').innerHTML = `<a href="${link.href}" target="_blank">${link.innerText}</a>`;
-                    found = true;
-                }
-            });
-
-            if (!found) {
-                document.getElementById('generated-link').innerText = 'Nie znaleziono monitora.';
-            }
-        }
-    </script>
+    }
+</script>
 </body>
 </html>
