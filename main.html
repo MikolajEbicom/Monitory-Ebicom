@@ -8,7 +8,7 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: black;
-      text-align: left;
+      text-align: center; /* Wyśrodkowanie zawartości */
       background-color: white; /* Białe tło dla strony */
     }
 
@@ -17,29 +17,35 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 50%; /* Rozmiar zdjęcia */
-      max-width: 600px; /* Maksymalna szerokość zdjęcia */
+      width: 150%; /* Zwiększenie szerokości zdjęcia trzykrotnie */
+      max-width: 1800px; /* Maksymalna szerokość zdjęcia */
       height: auto; /* Utrzymanie proporcji zdjęcia */
       background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
-      background-size: contain; /* Dopasowanie rozmiaru zdjęcia */
+      background-size: cover; /* Dopasowanie rozmiaru zdjęcia */
       padding: 20px; /* Opcjonalne wypełnienie wokół zdjęcia */
+      z-index: -1; /* Ustawienie zdjęcia w tle */
     }
 
     .content {
       position: relative;
       z-index: 1;
       padding: 20px;
-      text-align: left; /* Wyrównanie tekstu do lewej */
+      display: inline-block; /* Wyśrodkowanie kontentu w bloku */
+      text-align: center; /* Wyśrodkowanie tekstu */
     }
 
     .content b {
+      display: block;
       font-size: 28px; /* Nieco większy rozmiar nagłówka */
+      margin-bottom: 20px; /* Odstęp między nagłówkiem a odnośnikami */
     }
 
     .content a {
+      display: block;
       color: black; /* Kolor odnośników na czarny */
       text-decoration: none;
       font-size: 20px; /* Rozmiar czcionki odnośników */
+      margin: 5px 0; /* Odstępy między odnośnikami */
     }
 
     .content a:hover {
@@ -50,57 +56,46 @@
 <body>
   <div class="background"></div>
   <div class="content">
-    <b>Wykaz monitorów w biurze Ebicom</b> <br><br> 
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M3.html">Ebicom-M3</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M4.html">Ebicom-M4</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M5.html">Ebicom-M5</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M6.html">Ebicom-M6</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M7.html">Ebicom-M7</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M8.html">Ebicom-M8</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M9.html">Ebicom-M9</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M10.html">Ebicom-M10</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M11.html">Ebicom-M11</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M12.html">Ebicom-M12</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M13.html">Ebicom-M13</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M14.html">Ebicom-M14</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M15.html">Ebicom-M15</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M16.html">Ebicom-M16</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M17.html">Ebicom-M17</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M18.html">Ebicom-M18</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M19.html">Ebicom-M19</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M20.html">Ebicom-M20</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M21.html">Ebicom-M21</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M22.html">Ebicom-M22</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M23.html">Ebicom-M23</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M24.html">Ebicom-M24</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M25.html">Ebicom-M25</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M26.html">Ebicom-M26</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M27.html">Ebicom-M27</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M28.html">Ebicom-M28</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M29.html">Ebicom-M29</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M30.html">Ebicom-M30</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M31.html">Ebicom-M31</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M32.html">Ebicom-M32</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M33.html">Ebicom-M33</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M34.html">Ebicom-M34</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M35.html">Ebicom-M35</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M36.html">Ebicom-M36</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M37.html">Ebicom-M37</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M38.html">Ebicom-M38</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M39.html">Ebicom-M39</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M40.html">Ebicom-M40</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M41.html">Ebicom-M41</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M42.html">Ebicom-M42</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M43.html">Ebicom-M43</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M44.html">Ebicom-M44</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M45.html">Ebicom-M45</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M46.html">Ebicom-M46</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M47.html">Ebicom-M47</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M48.html">Ebicom-M48</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M49.html">Ebicom-M49</a></b> <br>
-    <b><a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M50.html">Ebicom-M50</a></b> <br>
+    <b>Wykaz monitorów w biurze Ebicom</b> 
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M3.html">Ebicom-M3</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M4.html">Ebicom-M4</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M5.html">Ebicom-M5</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M6.html">Ebicom-M6</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M7.html">Ebicom-M7</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M8.html">Ebicom-M8</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M9.html">Ebicom-M9</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M10.html">Ebicom-M10</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M11.html">Ebicom-M11</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M12.html">Ebicom-M12</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M13.html">Ebicom-M13</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M14.html">Ebicom-M14</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M15.html">Ebicom-M15</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M16.html">Ebicom-M16</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M17.html">Ebicom-M17</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M18.html">Ebicom-M18</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M19.html">Ebicom-M19</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M20.html">Ebicom-M20</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M21.html">Ebicom-M21</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M22.html">Ebicom-M22</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M23.html">Ebicom-M23</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M24.html">Ebicom-M24</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M25.html">Ebicom-M25</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M26.html">Ebicom-M26</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M27.html">Ebicom-M27</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M28.html">Ebicom-M28</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M29.html">Ebicom-M29</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M30.html">Ebicom-M30</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M31.html">Ebicom-M31</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M32.html">Ebicom-M32</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M33.html">Ebicom-M33</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M34.html">Ebicom-M34</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M35.html">Ebicom-M35</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M36.html">Ebicom-M36</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M37.html">Ebicom-M37</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M38.html">Ebicom-M38</a>
+    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M39.html">Ebicom-M39</a>
   </div>
 </body>
 </html>
