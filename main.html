@@ -262,11 +262,14 @@
         <div class="generated-link" id="generated-link"></div>
     </div>
     <script>
+        // Hasło ukryte w zmiennej JavaScript
+        const correctPassword = 'zaq1@WSX';
+
         function login() {
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            if (username === 'admin' && password === 'password') {
+            if (username === 'admin' && password === correctPassword) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
                 document.getElementById('search-container').style.display = 'block'; // Pokaż pole wyszukiwania
@@ -301,13 +304,26 @@
             };
         }
 
-        document.getElementById('login-container').addEventListener('keydown', function(event) {
+        document.getElementById('username').addEventListener('keydown', function(event) {
             if (event.key === 'Enter') {
                 event.preventDefault();
                 login();
             }
         });
 
+        document.getElementById('password').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                login();
+            }
+        });
+
+        document.getElementById('login-container').addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                login();
+            }
+        });
     </script>
 </body>
 </html>
