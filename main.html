@@ -44,7 +44,7 @@
     }
 
     .content a {
-      display: block;
+      display: inline-block; /* Zmiana na inline-block, aby podświetlenie dopasowało się do tekstu */
       color: black;
       text-decoration: none;
       font-size: 20px;
@@ -54,8 +54,8 @@
     }
 
     .content a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      color: #000;
+      background-color: rgba(144, 238, 144, 0.3); /* Jasnozielone podświetlenie */
+      color: black;
       text-decoration: underline;
     }
 
@@ -79,29 +79,29 @@
     }
 
     .footer-links a:hover {
-      background-color: rgba(0, 0, 0, 0.1);
-      color: #000;
+      background-color: rgba(144, 238, 144, 0.3); /* Jasnozielone podświetlenie */
+      color: black;
       text-decoration: underline;
     }
 
     .link-container {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px; /* Odstęp między linkami */
+      gap: 10px;
       justify-content: center;
-      max-width: 1200px; /* Maksymalna szerokość kontenera */
-      margin: 0 auto; /* Wyśrodkowanie kontenera */
+      max-width: 1200px;
+      margin: 0 auto;
       padding: 20px;
     }
 
     .link-column {
       flex: 1;
-      min-width: 300px; /* Minimalna szerokość kolumny */
-      max-width: 50%; /* Maksymalna szerokość kolumny */
+      min-width: 300px;
+      max-width: 50%;
     }
 
     .link-column a {
-      display: block;
+      display: inline-block; /* Zmiana na inline-block, aby podświetlenie dopasowało się do tekstu */
       margin-bottom: 5px;
     }
 
