@@ -291,9 +291,8 @@
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            const code = parseInt(document.getElementById('code').value, 10);
 
-            if (username === validUsername && password === validPassword && code === validCode) {
+            if (username === validUsername && password === validPassword) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
                 document.getElementById('search-container').style.display = 'block'; // Pokazuje pole wyszukiwania po zalogowaniu
