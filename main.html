@@ -112,8 +112,8 @@
 <body>
     <div class="login-container" id="login-container">
         <h2>Logowanie</h2>
-        <input type="text" id="username" placeholder="admin">
-        <input type="password" id="password" placeholder="admin">
+        <input type="text" id="username" placeholder="nazwa użytkownika">
+        <input type="password" id="password" placeholder="hasło">
         <button onclick="login()">Zaloguj się</button>
     </div>
     <div class="content-wrapper" id="content-wrapper">
@@ -185,8 +185,7 @@
             var username = document.getElementById('username').value;
             var password = document.getElementById('password').value;
 
-            // Przyklad prostego logowania. W prawdziwej aplikacji użyj bezpieczniejszych metod.
-            if (username === 'admin' && password === 'password') {
+            if (username === 'admin' && password === '3bicom') {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
             } else {
