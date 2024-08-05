@@ -11,6 +11,7 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: black;
+            overflow: hidden;
             background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
             background-size: 33%;
         }
@@ -52,6 +53,7 @@
 
         .content-wrapper {
             display: none;
+            position: relative;
             text-align: center;
             padding: 20px;
             background: rgba(255, 255, 255, 0.8);
@@ -194,7 +196,6 @@
         <h2>Logowanie</h2>
         <input type="text" id="username" placeholder="Nazwa użytkownika">
         <input type="password" id="password" placeholder="Hasło">
-        <input type="text" id="code" placeholder="KOD">
         <button onclick="login()">Zaloguj się</button>
     </div>
 
@@ -280,11 +281,11 @@
     </div>
     
     <script>
-        // Stałe dane logowania
+        //dane logowania
         const validUsername = 'admin';
         const validPassword = 'zaq1@WSX';
 
-        // Funkcja logowania
+        //logowania
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
@@ -298,7 +299,7 @@
             }
         }
 
-        // Funkcja generowania linku
+        //generowanie linku
         function generateLink() {
             const searchInput = document.getElementById('search-input').value;
             const number = parseInt(searchInput, 10);
@@ -313,12 +314,12 @@
             }
         }
 
-        // Funkcja obsługująca akcje w polu wyszukiwania
+        //pole wyszukiwania
         function handleAction() {
             generateLink();
         }
 
-        // Funkcja rozwijająca lub zwijająca linki
+        //zwijane linki
         function toggleLinks() {
             const linkContainer = document.getElementById('link-container');
             if (linkContainer.classList.contains('expanded')) {
@@ -328,14 +329,14 @@
             }
         }
 
-        // Ustawienie nasłuchiwania zdarzenia na naciśnięcie Enter w polu wyszukiwania
+        //Enter
         document.getElementById('search-input').addEventListener('keypress', function (event) {
             if (event.key === 'Enter') {
                 handleAction();
             }
         });
 
-        // Ustawienie nasłuchiwania zdarzenia na naciśnięcie Enter w polu logowania
+        //Enter
         document.getElementById('username').addEventListener('keypress', function (event) {
             if (event.key === 'Enter') {
                 login();
