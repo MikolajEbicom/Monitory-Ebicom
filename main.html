@@ -257,7 +257,7 @@
             </div>
         </div>
     </div>
-    <div class="search-container" id="search-container">
+     <div class="search-container" id="search-container">
         <input type="text" id="search-input" placeholder="Wyszukaj monitor...">
         <button onclick="generateLink()">Generuj link</button>
         <div class="generated-link" id="generated-link"></div>
@@ -300,20 +300,14 @@
         }
 
         function generateLink() {
-            const searchInput = document.getElementById('search-input').value.toLowerCase();
-            const links = document.querySelectorAll('.link-column a');
-            let found = false;
-
-            links.forEach(link => {
-                if (link.innerText.toLowerCase().includes(searchInput)) {
-                    document.getElementById('generated-link').innerHTML = `<a href="${link.href}" target="_blank">${link.innerText}</a>`;
-                    found = true;
-                }
-            });
-
-            if (!found) {
-                document.getElementById('generated-link').innerText = 'Nie znaleziono monitora.';
+            const searchInput = document.getElementById('search-input').value;
+            if (searchInput.trim() === '') {
+                document.getElementById('generated-link').innerText = 'Proszę wpisać numer monitora.';
+                return;
             }
+
+            const link = `https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M${searchInput}.html`;
+            document.getElementById('generated-link').innerHTML = `<a href="${link}" target="_blank">${link}</a>`;
         }
     </script>
 </body>
