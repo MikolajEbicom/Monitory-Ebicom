@@ -8,7 +8,6 @@
       padding: 0;
       font-family: Arial, sans-serif;
       color: black;
-      text-align: center; /* Wyśrodkowanie zawartości */
       background-color: white; /* Białe tło dla strony */
     }
 
@@ -17,21 +16,25 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 150%; /* Zwiększenie szerokości zdjęcia trzykrotnie */
+      width: 150%; /* Powiększenie zdjęcia */
       max-width: 1800px; /* Maksymalna szerokość zdjęcia */
       height: auto; /* Utrzymanie proporcji zdjęcia */
       background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
       background-size: cover; /* Dopasowanie rozmiaru zdjęcia */
-      padding: 20px; /* Opcjonalne wypełnienie wokół zdjęcia */
       z-index: -1; /* Ustawienie zdjęcia w tle */
+      padding: 20px; /* Opcjonalne wypełnienie wokół zdjęcia */
+    }
+
+    .content-wrapper {
+      position: relative;
+      text-align: center; /* Wyśrodkowanie zawartości */
     }
 
     .content {
+      display: inline-block; /* Wyśrodkowanie kontentu w bloku */
       position: relative;
       z-index: 1;
       padding: 20px;
-      display: inline-block; /* Wyśrodkowanie kontentu w bloku */
-      text-align: center; /* Wyśrodkowanie tekstu */
     }
 
     .content b {
@@ -51,12 +54,35 @@
     .content a:hover {
       text-decoration: underline;
     }
+
+    .side-image {
+      position: absolute;
+      top: 0;
+      width: 50%; /* Szerokość bocznych obrazów */
+      height: 100%;
+      background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
+      background-size: cover; /* Dopasowanie rozmiaru bocznych obrazów */
+      z-index: -2; /* Ustawienie bocznych obrazów za treścią */
+    }
+
+    .left {
+      left: 0;
+      transform: translateX(-100%); /* Przesunięcie obrazu w lewo */
+    }
+
+    .right {
+      right: 0;
+      transform: translateX(100%); /* Przesunięcie obrazu w prawo */
+    }
   </style>
 </head>
 <body>
   <div class="background"></div>
-  <div class="content">
-    <b>Wykaz monitorów w biurze Ebicom</b> 
+  <div class="side-image left"></div>
+  <div class="side-image right"></div>
+  <div class="content-wrapper">
+    <div class="content">
+      <b>Wykaz monitorów w biurze Ebicom</b> 
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M3.html">Ebicom-M3</a>
@@ -70,7 +96,7 @@
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M11.html">Ebicom-M11</a>
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M12.html">Ebicom-M12</a>
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M13.html">Ebicom-M13</a>
-    <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M14.html">Ebicom-M14</a>
+    <a  href="https://mikolajebicom.github.io//Monitory-Ebicom/Ebicom-M14.html">Ebicom-M14</a>
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M15.html">Ebicom-M15</a>
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M16.html">Ebicom-M16</a>
     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M17.html">Ebicom-M17</a>
