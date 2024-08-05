@@ -67,25 +67,40 @@
             margin-bottom: 20px;
         }
 
+        .expandable-header {
+            cursor: pointer;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #4CAF50;
+            text-decoration: underline;
+        }
+
         .link-container {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center; /* Wyśrodkowanie kolumn */
-            gap: 20px; /* Odstęp między kolumnami */
+            justify-content: center;
+            gap: 20px;
+            overflow: hidden;
+            max-height: 0; /* Początkowa wysokość 0, aby ukryć kolumny */
+            transition: max-height 0.5s ease-out;
+        }
+
+        .link-container.expanded {
+            max-height: 1000px; /* Maksymalna wysokość, aby pomieścić wszystkie kolumny */
         }
 
         .link-column {
             display: flex;
             flex-direction: column;
-            width: 250px; /* Możesz dostosować szerokość kolumny */
-            text-align: left; /* Wyrównanie tekstu w kolumnie */
+            width: 250px;
+            text-align: left;
         }
 
         .link-column a {
             display: block;
             color: black;
             text-decoration: none;
-            font-size: 18px; /* Dostosuj wielkość czcionki */
+            font-size: 18px;
             margin: 5px 0;
             padding: 10px;
             transition: background 0.3s, color 0.3s;
@@ -132,8 +147,9 @@
     </div>
     <div class="content-wrapper" id="content-wrapper">
         <div class="content">
-            <b>Wykaz monitorów w biurze Ebicom</b> 
-            <div class="link-container">
+            <b>Wykaz monitorów w biurze Ebicom</b>
+            <div class="expandable-header" onclick="toggleLinks()">Rozwiń aby sprawdzić monitory</div>
+            <div class="link-container" id="link-container">
                 <div class="link-column">
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M1.html">Ebicom-M1</a>
                     <a href="https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M2.html">Ebicom-M2</a>
@@ -212,6 +228,11 @@
             } else {
                 alert('Nieprawidłowa nazwa użytkownika lub hasło.');
             }
+        }
+
+        function toggleLinks() {
+            var linkContainer = document.getElementById('link-container');
+            linkContainer.classList.toggle('expanded');
         }
     </script>
 </body>
