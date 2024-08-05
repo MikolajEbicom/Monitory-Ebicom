@@ -10,7 +10,7 @@
       color: black;
       overflow: hidden;
     }
-    
+
     .background {
       position: absolute;
       top: 50%;
@@ -47,11 +47,15 @@
       display: block;
       color: black;
       text-decoration: none;
-      font-size: 15px;
+      font-size: 20px;
       margin: 5px 0;
+      padding: 10px; /* Dodanie paddingu dla lepszego efektu podświetlania */
+      transition: background 0.3s, color 0.3s; /* Animacja przejścia dla efektu podświetlania */
     }
 
     .content a:hover {
+      background-color: rgba(0, 0, 0, 0.1); /* Jasne tło dla efektu podświetlenia */
+      color: #000; /* Można zmienić kolor tekstu, jeśli chcesz */
       text-decoration: underline;
     }
 
@@ -91,9 +95,12 @@
       text-decoration: none;
       font-size: 16px;
       margin: 5px 0;
+      transition: background 0.3s, color 0.3s; /* Animacja przejścia dla efektu podświetlania */
     }
 
     .footer-links a:hover {
+      background-color: rgba(0, 0, 0, 0.1); /* Jasne tło dla efektu podświetlenia */
+      color: #000; /* Można zmienić kolor tekstu, jeśli chcesz */
       text-decoration: underline;
     }
   </style>
