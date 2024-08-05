@@ -168,11 +168,13 @@
         .footer-links {
             position: absolute;
             bottom: 20px;
-            right: 20px;
+            left: 50%;
+            transform: translateX(-50%);
             background: rgba(255, 255, 255, 0.8);
             padding: 10px;
             border-radius: 5px;
             z-index: 1;
+            text-align: center;
         }
 
         .footer-links a {
@@ -181,13 +183,11 @@
             text-decoration: none;
             font-size: 16px;
             margin: 5px 0;
-            transition: background 0.3s, color 0.3s;
+            transition: color 0.3s;
         }
 
         .footer-links a:hover {
-            background-color: rgba(144, 238, 144, 0.3);
-            color: black;
-            text-decoration: underline;
+            color: #4CAF50;
         }
     </style>
 </head>
