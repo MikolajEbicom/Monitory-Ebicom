@@ -5,108 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wykaz monitorów w biurze Ebicom</title>
     <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            color: black;
-            overflow: hidden;
-            background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
-            background-size: cover;
-        }
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: black;
+    overflow: hidden;
+    background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
+    background-size: cover;
+}
 
-        .login-container {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            text-align: center;
-            z-index: 1;
-        }
+.login-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    text-align: center;
+    z-index: 1;
+}
 
-        .login-container input {
-            display: block;
-            margin: 10px auto;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.login-container input {
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-        .login-container button {
-            padding: 10px;
-            font-size: 16px;
-            color: white;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
+.login-container button {
+    padding: 10px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .login-container button:hover {
-            background-color: #45a049;
-        }
+.login-container button:hover {
+    background-color: #45a049;
+}
 
-        .content-wrapper {
-            display: none;
-            position: relative;
-            text-align: center;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            margin: 20px;
-        }
+.content-wrapper {
+    display: none;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 10px;
+    margin: 20px;
+}
 
-        .content b {
-            display: block;
-            font-size: 28px;
-            margin-bottom: 20px;
-        }
+.content b {
+    display: block;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
 
-        .content a {
-            display: inline-block;
-            color: black;
-            text-decoration: none;
-            font-size: 20px;
-            margin: 5px 0;
-            padding: 10px;
-            transition: background 0.3s, color 0.3s;
-        }
+.link-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Wyśrodkowanie kolumn */
+    gap: 20px; /* Odstęp między kolumnami */
+}
 
-        .content a:hover {
-            background-color: rgba(144, 238, 144, 0.3);
-            color: black;
-            text-decoration: underline;
-        }
+.link-column {
+    display: flex;
+    flex-direction: column;
+    width: 300px; /* Możesz dostosować szerokość kolumny */
+    text-align: left; /* Wyrównanie tekstu w kolumnie */
+}
 
-        .footer-links {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 5px;
-            z-index: 1;
-        }
+.link-column a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    margin: 5px 0;
+    padding: 10px;
+    transition: background 0.3s, color 0.3s;
+}
 
-        .footer-links a {
-            display: block;
-            color: black;
-            text-decoration: none;
-            font-size: 16px;
-            margin: 5px 0;
-            transition: background 0.3s, color 0.3s;
-        }
+.link-column a:hover {
+    background-color: rgba(144, 238, 144, 0.3);
+    color: black;
+    text-decoration: underline;
+}
 
-        .footer-links a:hover {
-            background-color: rgba(144, 238, 144, 0.3);
-            color: black;
-            text-decoration: underline;
-        }
+.footer-links {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.footer-links a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+.footer-links a:hover {
+    background-color: rgba(144, 238, 144, 0.3);
+    color: black;
+    text-decoration: underline;
+}
+
     </style>
 </head>
 <body>
