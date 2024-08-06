@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cytaty</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-image: url('https://github.com/MikolajEbicom/Monitory-Ebicom/raw/main/r%C3%B3%C5%BCe.jpg');
+            background-size: cover;
+            color: white;
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Inspirujące Cytaty</h1>
+    <ol>
+        <li>"Nie ma niczego trwalszego niż tymczasowość." - Pablo Picasso</li>
+        <li>"Nasze największe słabości leżą w rezygnacji." - Thomas Edison</li>
+        <li>"Człowiek tyle jest wart, ile warte są sprawy, którymi się zajmuje." - Marek Aureliusz</li>
+        <li>"Nigdy nie bój się wyznaczyć sobie zbyt wysokich celów; nawet jeśli nie osiągniesz ich, będziesz miał coś wartościowego." - Michał Anioł</li>
+        <li>"Sukces to nie ostateczność, porażka to nie fatalność: to odwaga, by kontynuować, jest tym, co się liczy." - Winston Churchill</li>
+        <li>"Nie czekaj. Pora nigdy nie będzie idealna." - Napoleon Hill</li>
+        <li>"Sukces to suma małych wysiłków, powtarzanych dzień po dniu." - Robert Collier</li>
+        <li>"Życie bez ryzyka jest życiem bez wzrostu." - Brian Tracy</li>
+        <li>"Porażka nie jest przeciwna sukcesowi, jest jej częścią." - Arianna Huffington</li>
+        <li>"Nie chodzi o to, ile masz, ale ile czerpiesz z tego, co masz." - Oprah Winfrey</li>
+    </ol>
+</body>
+</html>
