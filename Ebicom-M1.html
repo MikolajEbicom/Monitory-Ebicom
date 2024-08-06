@@ -13,6 +13,22 @@
             color: black;
             overflow: hidden;
         }
+       .home-button {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .home-button:hover {
+            background-color: #45a049;
+        }
    </style>
 </head>
 <body> 
@@ -31,6 +47,8 @@
          <font size=5> Złącze Internetowe: RJ-45 <span style="color: lime">Działa </span> </font> <br>
          <font size=5> Gniazdko: 8 <span style="color: lime">Działa </span> </font> <br>
          <font size=5> Złącze Wideo: HDMI <span style="color: lime">Działa </span> </font> <br> 
+
+    <button onclick="window.location.href='index.html'" class="home-button">Powrót na Stronę Główną</button>
         
 </body>
 </html>
