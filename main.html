@@ -338,19 +338,21 @@
 
     <script>
         
+        //dane logowania
         const validUsername = 'admin';
         const validPassword = 'zaq1@WSX';
-        
+
+        //logowania
         function login() {
             const username = document.getElementById('username').value;
             const password = document.getElementById('password').value;
-            if (username === 'ebicom' && password === 'ebicom') {
+
+            if (username === validUsername && password === validPassword) {
                 document.getElementById('login-container').style.display = 'none';
                 document.getElementById('content-wrapper').style.display = 'block';
-                document.getElementById('footer-links').style.display = 'block';
-                document.getElementById('search-container').style.display = 'block';
+                document.getElementById('search-container').style.display = 'block'; // Pokazuje pole wyszukiwania po zalogowaniu
             } else {
-                alert('Nieprawidłowa nazwa użytkownika lub hasło!');
+                alert('Niepoprawny login, hasło lub kod!');
             }
         }
 
