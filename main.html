@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wykaz monitorów w biurze Ebicom</title>
+    <title>Przewody na stanowisku są jego integralną częscią</title>
     <style>
         body, html {
             height: 100%;
@@ -11,7 +12,7 @@
             padding: 0;
             font-family: Arial, sans-serif;
             color: black;
-            overflow: auto; /* zmienione z 'hidden' na 'auto' */
+            overflow: hidden;
             background: url('https://github.com/MikolajEbicom/Monitory-Ebicom/blob/main/unnamed.png?raw=true') no-repeat center center;
             background-size: 33%;
         }
@@ -195,39 +196,6 @@
         .footer-links a:hover {
             color: #4CAF50;
         }
-
-        .scroll-buttons {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .scroll-buttons button {
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border-radius: 5px;
-            margin-bottom: 10px;
-            transition: background-color 0.3s;
-        }
-
-        .scroll-buttons button:hover {
-            background-color: #45a049;
-        }
-
-        .scroll-buttons button:active {
-            background-color: #3e8e41;
-        }
-
-        .scroll-buttons button:focus {
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(72, 180, 97, 0.5);
-        }
     </style>
 </head>
 <body>
@@ -243,14 +211,6 @@
         <button onclick="handleAction()">Potwierdź</button>
         <div class="generated-link" id="generated-link"></div>
     </div>
-
-    <div class="content-wrapper" id="content-wrapper">
-        <div class="content">
-            <b>Wykaz monitorów w biurze Ebicom</b>
-        </div> 
-        <div class="expandable-header" onclick="toggleLinks()">⬇⬇⬇Rozwiń aby sprawdzić monitory⬇⬇⬇</div>
-        <div class="link-container" id="link-container">
-            <div class="link-column">
 
     <div class="content-wrapper" id="content-wrapper">
         <div class="content">
@@ -330,14 +290,8 @@
 
         <a>© Mikołaj Kasztelan | Paweł Kierot</a>
     </div>
-
-    <div class="scroll-buttons">
-        <button onclick="scrollToTop()">⮝ Przewiń do góry</button>
-        <button onclick="scrollToBottom()">⮟ Przewiń na dół</button>
-    </div>
-
+    
     <script>
-        
         //dane logowania
         const validUsername = 'admin';
         const validPassword = 'zaq1@WSX';
@@ -356,46 +310,66 @@
             }
         }
 
+        //generowanie linku
+        function generateLink() {
+            const searchInput = document.getElementById('search-input').value;
+            const number = parseInt(searchInput, 10);
+            const baseUrl = 'https://mikolajebicom.github.io/Monitory-Ebicom/Ebicom-M';
+            const linkElement = document.getElementById('generated-link');
+
+            if (number > 50 || isNaN(number)) {
+                linkElement.innerHTML = '<span class="error-message">Nie znaleziono monitora</span>';
+            } else {
+                const fullUrl = ${baseUrl}${number}.html;
+                linkElement.innerHTML = <a href="${fullUrl}" target="_blank">Ebicom-M${number}</a>;
+            }
+        }
+
+        //pole wyszukiwania
+        function handleAction() {
+            generateLink();
+        }
+
+        //zwijane linki
         function toggleLinks() {
             const linkContainer = document.getElementById('link-container');
-            linkContainer.classList.toggle('expanded');
-        }
-
-        function handleAction() {
-            const input = document.getElementById("search-input").value.trim();
-            const baseURL = "https://mikolajebicom.github.io/Monitory-Ebicom/";
-            const errorMessage = document.createElement("div");
-            errorMessage.className = "error-message";
-            document.getElementById("generated-link").innerHTML = "";
-
-            if (!input) {
-                errorMessage.textContent = "Proszę wpisać numer monitora!";
-                document.getElementById("generated-link").appendChild(errorMessage);
-                return;
-            }
-
-            const validInputs = [
-                "Ebicom-M1", "Ebicom-M2", "Ebicom-M3", "Ebicom-M4", "Ebicom-M5",
-                "Ebicom-M6", "Ebicom-M7", "Ebicom-M8", "Ebicom-M9", "Ebicom-M10",
-                "Ebicom-M11", "Ebicom-M12"
-            ];
-
-            if (validInputs.includes(input)) {
-                const url = baseURL + input + ".html";
-                document.getElementById("generated-link").innerHTML = `Wygenerowany link: <a href="${url}" target="_blank">${input}</a>`;
+            if (linkContainer.classList.contains('expanded')) {
+                linkContainer.classList.remove('expanded');
             } else {
-                errorMessage.textContent = "Nieprawidłowy numer monitora!";
-                document.getElementById("generated-link").appendChild(errorMessage);
+                linkContainer.classList.add('expanded');
             }
         }
 
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
+        //Enter
+        document.getElementById('search-input').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                handleAction();
+            }
+        });
 
-        function scrollToBottom() {
-            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        //Enter
+        document.getElementById('username').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                login();
+            }
+        });
+
+        document.getElementById('password').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                login();
+            }
+        });
+
+        document.getElementById('code').addEventListener('keypress', function (event) {
+            if (event.key === 'Enter') {
+                login();
+            }
+        });
+          function toggleLinks() {
+            const linkContainer = document.getElementById("link-container");
+            linkContainer.classList.toggle("expanded");
         }
     </script>
+    
 </body>
 </html>
